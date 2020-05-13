@@ -1,0 +1,48 @@
+<h3>Изменить данные товара</h3>
+<div  style="width: 400px;">
+  <form [formGroup]="ReactForm" (submit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Название</label>
+      <input type="text" class="form-control" id="name" formControlName="name" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="brand">Фирма</label>
+      <input type="text" class="form-control" id="brand" formControlName="brand" name="brand">
+    </div>
+
+    <div class="form-group">
+      <label for="amount">Количество</label>
+      <input type="text" class="form-control" id="amount" formControlName="amount" name="amount">
+    </div>
+
+    <div class="form-group">
+      <select class="select-css" formControlName="categoryName" name="categoryName">        
+        <option disabled selected>Выбери спорт</option>
+        <option >Лыжные гонки</option>
+        <option>Парусный</option>  
+        <option>Волейбол</option> 
+        <option>Баскетбол</option>
+        <option>Футбол</option> 
+        <option>Гимнастика</option> 
+        <option>Бокс</option> 
+        <option>Борьба</option> 
+        <option>Лёгкая атлетика</option> 
+        <option>Тяжелая атлетика</option> 
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="size">Размер</label>
+      <input type="text" class="form-control" name="size" formControlName="size"/>   
+    </div>
+    
+
+    <div class="form-group">
+      <label for="price">Цена</label>
+      <input type="text" class="form-control" id="price" formControlName="price" name="price">
+    </div>
+
+    <button type="submit" class="btn btn-success">Отправить</button>
+  </form>
+</div>

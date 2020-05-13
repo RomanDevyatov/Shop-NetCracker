@@ -1,0 +1,63 @@
+
+<div class="panel panel-primary" *ngIf="showAdminBoard">
+  <div class="panel-heading">
+    <h2 align="center">Товары</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th sort-by='good.name'>Название</th>
+          <th>Фирма</th>
+          <th>Количество</th>
+          <th>Категория</th>
+          <th>Размер</th> 
+          <th>Цена</th>      
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let good of goods">
+          <td>{{good.name}}</td>
+          <td>{{good.brand}}</td>
+          <td>{{good.amount}}</td>  
+          <td>{{good.categoryName}}</td>     
+          <td>{{good.size}}</td>               
+          <td>{{good.price}}</td>    
+          <td>
+              <button (click)="deleteGood(good.id)" class="btn btn-danger" *ngIf="showAdminBoard">Удалить</button>
+              <button (click)="goodDetails(good.id)" class="btn btn-info" style="margin-left: 10px">Детали</button>
+              <button (click)="addToCart(good)" class="btn btn-info" style="margin-left: 10px" *ngIf="!zeroAmount(good)">В корзину</button>   
+              <button (click)="updateCartItem(good)" class="btn btn-info" style="margin-left: 10px" *ngIf="!zeroAmount(good)">Изменить</button>   
+              <!--<button (click)="addToNewCart(good)" class="btn btn-info" style="margin-left: 10px" *ngIf="!zeroAmount(good)">В новую корзину</button> -->  
+              <!--<button (click)="addFeedback(good.id)" class="btn btn-info" style="margin-left: 10px">Оставить отзыв</button>     -->        
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+<button (click)="addGood()" class="btn btn-info" style="margin-left: 10px" *ngIf="showAdminBoard">Добавить товар</button>     <br>  <br>    
+</div>
+
+<body>
+  <div class="main" >
+    <div class="product" *ngFor="let good of goods" >
+      <img src={{good.imgPath}} (click)="goodDetails(good.id)" class="blank_pic" alt="pict"> 
+      <p align="center" class="blank_pic" (click)="goodDetails(good.id)">
+        {{good.name}}<br>       
+      </p>
+      <!--<button (click)="goodDetails(good.id)" class="btn-detail">Детали</button>-->
+          
+      <div class="lower_part">
+        <h3 class="price">{{good.price}} р.</h3>           
+        <img src="assets/img/buy.png" class="shopping_cart" id="img_basket"  alt="" (click)="addToCart(good)"  *ngIf="!zeroAmount(good)" >
+        <a *ngIf="zeroAmount(good)"> Нет в наличии</a>
+      </div>      
+    </div>
+  </div>
+
+
+  
+</body>
+

@@ -1,0 +1,76 @@
+.btn-plus:before    { content: "\271A"; }
+.btn-minus:before    { content: "\2212"; }
+
+button.knopka {
+	color: #fff; 
+	background: #FFA500; 
+	padding: 5px; 
+	border-radius: 5px;
+	border: 2px solid #FF8247;
+	} 
+	button.knopka:hover { 
+	background: #FF6347; 
+}
+
+button.empty_knopka {
+	color: #fff; 
+	background: rgb(255, 255, 255); 
+	padding: 5px; 
+	border-radius: 5px;
+	border: 6px solid rgb(255, 255, 255);
+} 
+button.empty_knopka:hover { 
+	background: rgb(255, 255, 255); 
+	cursor: default;
+}
+
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.button7 {
+	font-weight: 700;
+	color: white;
+	text-decoration: none;
+	padding: .8em 1em calc(.8em + 3px);
+	border-radius: 3px;
+	background: rgb(64,199,129);
+	box-shadow: 0 -3px rgb(53,167,110) inset;
+	transition: 0.2s;
+  } 
+  .button7:hover { background: rgb(53, 167, 110); }
+  .button7:active {
+	background: rgb(33,147,90);
+	box-shadow: 0 3px rgb(33,147,90) inset;
+  }
+
+  .demotable {
+	border-collapse: collapse;
+	counter-reset: schetchik;  /* счётчик с названием "schetchik" работает в рамках класса .demotable */ 
+  }
+  .demotable tr {
+	counter-increment: schetchik;  /* при встрече тега tr счётчик с названием "schetchik" увеличивается на единицу */ 
+  }
+  .demotable td,
+  .demotable tr:before {
+	padding: .1em .5em;
+	border: 1px solid #E7D5C0;
+  }
+  .demotable tr:before {
+	content: counter(schetchik);  /* значение счётчика с названием "schetchik" записывается в первую клетку строки */ 
+	display: table-cell;
+	vertical-align: middle;
+	color: #978777;
+  }
+
+  .btn_delete{
+	position: relative;
+	margin-left:30px;
+  }
+

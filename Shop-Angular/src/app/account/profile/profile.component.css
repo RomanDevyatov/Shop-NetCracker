@@ -1,0 +1,8 @@
+.type_list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.column_add{
+    width: 410px;
+}

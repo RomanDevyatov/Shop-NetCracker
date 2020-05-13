@@ -1,0 +1,30 @@
+
+<div class="panel panel-primary" >
+  <div class="panel-heading">
+    <h2 align="center">Товары</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Название</th>
+          <th>Пользователь</th>
+          <th>Дата</th>
+          <th>Отзыв</th>      
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let feedback of feedbacks">
+          <td>{{feedback.good.name}}</td>
+          <td>{{feedback.user.username}}</td>
+          <td>{{feedback.date}}</td>  
+          <td>{{feedback.text}}</td>     
+          <td>
+                   
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

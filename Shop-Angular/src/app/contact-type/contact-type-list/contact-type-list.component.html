@@ -1,0 +1,30 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Виды связи</h2>
+  </div>
+  <div class="type_list">
+    <div class= "column_types">
+      <div class="panel-body">
+        <table class="table table-striped">
+        <thead>
+            <tr>
+            <th>Название</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let contactType of contactTypes ">
+            <td>{{contactType.name}}</td>
+            <td><button (click)="deleteById(contactType.id)" class="btn btn-danger">Delete</button> 
+            </td>
+            </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="column_add" align="right">
+        <input [(ngModel)]="newTypeName" />
+        <button (click)="addContactType()" class="btn btn-info" style="margin-left: 10px" *ngIf="showAdminBoard">Добавить связь</button>     
+    </div>
+  </div>  
+</div>

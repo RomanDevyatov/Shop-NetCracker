@@ -1,0 +1,31 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Контакты</h2>
+  </div>
+  <div class="type_list">
+    <div class= "column_types">
+      <div class="panel-body">
+        <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Логин</th>
+                <th>Вид связи</th>
+                <th>Адрес</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let contact of contacts ">
+                <td>{{contact.user.username}}</td>
+                <td>{{contact.contactType.name}}</td>
+                <td>{{contact.contactType.value}}</td>
+                <td>
+                    <button (click)="deleteById(contact.id)" class="btn btn-danger">Delete</button> 
+                </td>
+            </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>    
+  </div>  
+</div>

@@ -1,0 +1,19 @@
+
+   TABLE {
+    width: 100%; /* Ширина таблицы */
+    border: none; /* Рамка вокруг таблицы */
+    border-bottom: 1px solid black; /* Убираем линию снизу */
+   }
+   TD, TH {
+    padding: 3px; /* Поля вокруг содержимого ячеек */
+   }
+   TH {
+    text-align: left; /* Выравнивание по левому краю */
+    background: rgb(98, 145, 247); /* Цвет фона */
+    color: white; /* Цвет текста */
+    border: none; /* Рамка вокруг ячеек */
+   }
+   TD {
+    border-bottom: 1px solid black; /* Линия снизу */
+   }
+  

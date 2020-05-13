@@ -1,0 +1,68 @@
+<h3>Update User</h3>
+<div  style="width: 400px;">
+  <form [formGroup]="ReactForm" (submit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="username">Логин</label>
+      <input type="text" class="form-control" id="username" formControlName="username" name="username">
+    </div>
+
+    <div class="form-group">
+      <label for="brand">Имя</label>
+      <input  type="text" class="form-control" id="firstName"  formControlName="firstName" name="firstName">
+    </div>
+
+    <div class="form-group">
+      <label for="amount">Фамилия</label>
+      <input type="text" class="form-control" id="lastName" formControlName="lastName" name="lastName">
+    </div>
+
+    <div class="form-group">
+      <select class="select-css" formControlName="categoryName" name="categoryName">        
+        <option disabled selected>Спорт</option>
+        <option >Лыжные гонки</option>
+        <option>Парусный</option>  
+        <option>Волейбол</option> 
+        <option>Баскетбол</option>
+        <option>Футбол</option> 
+        <option>Гимнастика</option> 
+        <option>Бокс</option> 
+        <option>Борьба</option> 
+        <option>Лёгкая атлетика</option> 
+        <option>Тяжелая атлетика</option> 
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" name="email" formControlName="email"/>   
+    </div>
+    
+    
+    <div class="form-group">
+      <label for="categoryName">Пароль</label>
+      <input type="password" class="form-control" id="password" formControlName="password" name="password">
+    </div>
+
+    <div class="form-group">
+      <label for="categoryName">День Рождения</label>
+      <input type="date" class="form-control" id="birthDate" formControlName="birthDate" name="birthDate">
+    </div>
+  <div class="form-group">
+     
+    <label>Контактная информация</label>    
+        <div formArrayName="contactTypeValues">        
+          <div *ngFor="let contactTypeValue of contactTypeValues.controls; let i=index; let contact of contacts"> 
+            <label>
+              {{contact.contactType.name}}:
+              <input type="text" [formControlName]="i" placeholder="">
+            </label>
+          </div>
+        </div>      
+  </div>
+  
+    
+    
+    <button type="submit" class="btn btn-success">Отправить</button>
+  </form>
+</div>

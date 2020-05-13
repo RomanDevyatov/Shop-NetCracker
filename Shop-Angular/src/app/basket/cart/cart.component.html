@@ -1,0 +1,58 @@
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 align="right">Корзина</h2>
+  </div>
+  <div class="panel-body" *ngIf="!isEmpty()">
+    <table class="table table-striped demotable">
+      <thead>
+        <tr>
+          <th>Название</th>
+          <th>Количество</th>  
+		  <th>Цена, руб.</th>        
+          <th>Скидка, %</th>     
+          <th></th>       
+        </tr>
+      </thead>
+      <tbody >
+        <tr *ngFor="let item of items " >          
+          <td >{{item.good.name}}</td>
+          <td>
+		  	<div class="quantity">    
+			  	<button class="knopka" (click)="minusOneProduct(item)" *ngIf="!checkInfinum(item)">-</button>    
+          		<input type="number"  onkeypress="return false" class="input-text qty text" name="amount"  value="{item.amount}"  [(ngModel)]="item.amount" (ngModelChange)="changeAmount(item, item.amount)">         									
+				<button class="knopka"  (click)="plusOneProduct(item)" *ngIf="!checkSupremum(item)">+</button>
+			</div>
+          </td>   
+		  <td>
+				{{item.good.price}}
+		  </td>
+          <td>
+           {{item.user.discount.percent}}
+          </td>
+          <td><button (click)="deleteBasketItem(item)" class="btn btn-danger">Удалить</button> 
+          </td>         
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="items.length">
+    <label for="cheese">Итого: {{getSumma()}} </label><br>
+	<div align="right">
+		<button  (click)="(refresh())" class="btn btn-info" >Обновить</button>  
+	</div>
+	<button  (click)="(confirmItems())" class="btn button7">Заказать</button>  
+	
+	<button  (click)="(clearCart())" class="btn btn-danger btn_delete">Очистить корзину</button>  
+  </div>
+</div>
+<div *ngIf="isEmpty()">
+	Корзина пуста!
+</div>
+
+<div>
+<p align="right" (ngModelChange)="getCurrCountDown()">
+	  	<!--{{counter | formatTime}}-->
+	  
+</p>
+</div>

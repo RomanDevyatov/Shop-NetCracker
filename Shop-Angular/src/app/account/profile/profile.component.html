@@ -1,0 +1,69 @@
+<div *ngIf="currentUser; else loggedOut">
+<div class="type_list">
+<div class= "column_types">
+  <header class="jumbotron">
+    <h3>
+      <strong>{{ currentUser.username }}</strong> profile
+    </h3>
+    </header>
+    <div>
+      <strong>Токен:</strong>
+      {{ currentUser.accessToken.substring(0, 30) }} ...
+      {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}    
+    </div>
+    <div>
+      <strong>Email:</strong>
+      {{ currentUser.email }}
+    </div>
+    <div *ngIf="!isStringFieldNull(fullUser.lastName)">
+      <strong>Имя:</strong>
+      {{ fullUser.firstName }}
+    </div>
+    <div *ngIf="!isStringFieldNull(fullUser.lastName)">
+      <strong>Фамилия:</strong>
+      {{ fullUser.lastName }}
+    </div>
+    <div *ngIf="!isStringFieldNull(fullUser.categoryName)">
+      <strong>Категория:</strong>
+      {{ fullUser.categoryName }}
+    </div>  
+    <div  *ngIf="!isStringFieldNull(fullUser.birthDate)">
+      <strong>День рождния:</strong>
+      {{ fullUser.birthDate }}
+    </div>
+
+    <strong>Контактная информация:</strong>
+    <!--<p  *ngFor="let contact of contacts">    -->
+    <div *ngIf="isContactValueNull(contacts)">           
+        отсутствует        
+    </div>
+    <div  *ngFor="let contact of contacts">  
+      <ul>
+        <li  *ngIf="!isValueNull(contact.value)">           
+          {{ contact.contactType.name }}: {{contact.value}}        
+        </li>
+      </ul>
+    </div>
+    
+    <div *ngIf="!isDiscNull()">
+      <strong>Статус скидки:</strong>
+     {{ fullUser.discount.description}}    
+    </div>
+
+    <strong>Роли:</strong>
+    <ul>
+      <li *ngFor="let role of currentUser.roles">
+        {{ role }}
+      </li>
+    </ul>
+
+</div>
+<div class="column_add" align="left">
+  <button (click)="updateProfile()" class="btn btn-info" style="margin-left: 10px" >Редактировать</button>
+</div>
+</div>
+</div>
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template>

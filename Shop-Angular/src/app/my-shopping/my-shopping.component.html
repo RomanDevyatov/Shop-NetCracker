@@ -1,0 +1,34 @@
+<html>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Мои заказы</h2>
+  </div>
+  <div class="panel-body" *ngIf="!isEmpty()">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Дата</th>
+          <th>Название</th>
+          <th>Цена</th>   
+          <th>Скидка, %</th>  
+          <th>Количество</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let orderhist of myShoppingHistory">
+          <td>{{orderhist.date}}</td>
+          <td>{{orderhist.good.name}}</td>
+          <td>{{orderhist.good.price}}</td>
+          <td>{{orderhist.discount.percent}}</td>
+          <td>{{orderhist.amount}}</td>    
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="isEmpty()">
+	Список пуст!
+</div>
+</div>
+
+</html>

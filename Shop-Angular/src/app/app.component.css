@@ -1,0 +1,178 @@
+.active-pink-2 input.form-control[type=text]:focus:not([readonly]) {
+    border-bottom: 1px solid #f48fb1;
+    box-shadow: 0 1px 0 0 #f48fb1;
+  }
+
+  nav.navbar .dropdown:hover > .dropdown-menu {
+    display: block; 
+   } 
+
+   @media only screen and (max-device-width: 992px){
+    nav.navbar .dropdown:hover .dropdown-menu{
+        display: none;
+    }
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+html,
+body {
+	height: 100%;
+}
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+.content {
+	flex: 1 0 auto;
+}
+.footer {
+	flex: 0 0 auto;
+}
+
+/* #footer {
+  width:1110px;
+  height:150px;
+  //background:url(src/app/pictures/footer.jpg) no-repeat top, left;
+  display: block;
+} */
+
+
+#myFooter{
+  padding-top:32px;
+}
+
+#myFooter .container{
+  text-align: center;
+}
+
+#myFooter .footer-copyright{
+  margin-bottom: 35px;
+  text-align: center;
+  color: #777;
+}
+
+#myFooter ul{
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 18px;
+}
+
+#myFooter a{
+  color: #282b2d;
+  font-size: 18px;
+}
+
+#myFooter li{
+  display: inline-block;
+  margin: 0px 15px;
+  line-height: 2;
+}
+
+#myFooter .footer-social{
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: #eee;
+}
+
+#myFooter .fa{
+  font-size: 36px;
+  margin-right: 15px;
+  margin-left: 20px;
+  background-color: white;
+  color: #d0d0d0;
+  border-radius: 51%;
+  padding: 10px;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  line-height: 43px;
+  text-decoration: none;
+  transition:color 0.2s;
+}
+
+#myFooter .fa-facebook:hover{
+ color: #2b55ff;
+}
+
+#myFooter .fa-facebook:focus{
+  color: #2b55ff; 
+}
+
+#myFooter .fa-google-plus:hover{
+  color:red;
+}
+
+#myFooter .fa-google-plus:focus{
+  color:red;
+}
+
+#myFooter .fa-twitter:hover{
+  color: #00aced;
+
+}
+
+#myFooter .fa-twitter:focus{
+  color:#00aced;
+}
+
+
+
+/* CSS used for positioning the footers at the bottom of the page. */
+/* You can remove this. */
+
+html{
+  height: 100%;
+}
+
+body{
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  height: 100%;
+}
+
+.content{
+ flex: 1 0 auto;
+ -webkit-flex: 1 0 auto;
+ min-height: 200px;
+}
+
+#myFooter{
+ flex: 0 0 auto;
+ -webkit-flex: 0 0 auto;
+}
+
+ /* Style buttons */
+ .btn {
+  /*background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  color: rgb(143, 138, 138); /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */  
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  color: rgb(90, 86, 86);
+} 
+.btn:active{
+  outline:none;
+  }
+.btn:focus{
+  outline:none;
+} 
+
+#label{
+  font-size: medium;
+}
+
+#adm{
+  font-size: small;
+}

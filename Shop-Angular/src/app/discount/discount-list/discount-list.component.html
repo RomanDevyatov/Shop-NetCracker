@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Discount List</h2>
+  </div>
+  
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Percent</th>
+            <th>Description</th>    
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let discount of discounts | async">
+            <td>{{discount.percent}}</td>
+            <td>{{discount.description}}</td>
+            <td><button (click)="deleteDiscount(discount.id)" class="btn btn-danger">Delete</button>              
+              <button (click)="discountDetails(discount.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+</div>

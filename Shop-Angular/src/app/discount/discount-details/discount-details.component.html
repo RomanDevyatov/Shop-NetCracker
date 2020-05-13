@@ -1,0 +1,15 @@
+<h2>Discount Details</h2> 
+
+<hr/>
+<div *ngIf="discount">
+  <div>
+    <label><b>Percent: </b></label> {{discount.percent}}
+  </div>
+  <div>
+    <label><b>Description: </b></label> {{discount.description}}
+  </div>  
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Discount List</button><br>

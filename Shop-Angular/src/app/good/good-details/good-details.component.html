@@ -1,0 +1,149 @@
+<h2>Детали</h2> 
+
+
+<body>
+    <div class="product_detail" *ngIf="good">
+      <div class="column_img">
+        <img src={{good.imgPath}} class="image" alt="pict"> <br><br>
+      </div>
+      <div class="column_detail">
+        <div>
+          <label><b>Название: </b></label> {{good.name}}
+        </div>
+        <div>
+          <label><b>Брэнд: </b></label> {{good.brand}}
+        </div>
+        <div>
+          <label><b>Количество: </b></label> {{good.amount}}
+        </div>          
+        <div>
+          <label><b>Категория: </b></label> {{good.categoryName}}
+        </div>  
+        <div>
+          <label><b>Размер: </b></label> {{good.size}}
+        </div>  
+      </div>
+      <div class="column_address">
+      <div>
+          <p style='font-size:40px'><label><b>Цена: </b></label> {{good.price}} руб.</p>
+      </div>  
+        <button class="knopka" (click)="minusOne()" *ngIf="!zeroAmount(good)">-</button>    
+        <input type="number"  class="input-text qty text" name="amount" value="{item.amount}" [(ngModel)]="item.amount" min=1 (ngModelChange)="checkInputAmount(item.amount)" *ngIf="!zeroAmount(good)">    
+				<button class="knopka" (click)="plusOne()" *ngIf="!zeroAmount(good)">+</button>
+        <div *ngIf="zeroAmount(good)">
+	            Нет в наличии!
+            </div>
+      <br>
+      <br>
+        <button (click)="addToCart(good, item.amount)" class="btn btn-info" style="margin-left: 10px" *ngIf="!zeroAmount(good)">В корзину</button>         
+      <br>
+      <br>
+      <!--
+       <button (click)="addFeedback(good.id)" class="btn btn-info" style="margin-left: 10px">Оставить отзыв</button>
+          -->  
+      </div>
+
+      
+    </div>  
+    <div class="comments" *ngIf="good">
+        <div class="write_comment">
+          <div class="write_comment">          
+            <button (click)="show()" type="submit" class="btn btn-success">Оставить отзыв</button>
+          </div>      
+        </div>
+        <br/>
+        <div class="feedbacks">
+          <h5 align="left">Отзывы</h5>  <br/>
+          <div class="feedback_items" *ngFor="let feedback of feedbacksForGood">
+            <p>{{feedback.date}} {{feedback.user.username}}  <button (click)="deleteFeedback(feedback.id)" class="btn btn-danger" *ngIf="showAdminBoard">Удалить</button> </p>
+            <p>{{feedback.text}}</p><br>
+            
+          </div>
+          <!--<div *ngIf="!isFeedbackEmpty()">
+	            Отзывов нет!
+            </div>-->
+        </div>
+        
+    </div>
+
+
+
+    <!-- Creates the bootstrap modal where the image will appear -->
+  <div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">          
+            <h4 class="modal-title" id="myModalLabel">Оставить отзыв</h4>
+          </div>
+        <div class="modal-body">
+        <textarea id="textComment" cols="48" rows="5" [(ngModel)]="text" name="textComment"
+              [(ngModel)]="text"></textarea><br>
+
+        </div>
+          <div class="modal-footer">
+            <button (click)="addFeedback(text)" align="left" type="submit" class="btn btn-success">Отправить</button>
+            <button type="button" class="btn btn-dark" data-dismiss="modal" (click) = "hide()">Закрыть</button>        
+          </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+<!--
+<hr/>
+<div *ngIf="good">
+  <div>
+    <label><b>Name: </b></label> {{good.name}}
+  </div>
+  <div>
+    <label><b>Brand: </b></label> {{good.brand}}
+  </div>
+  <div>
+    <label><b>Amount: </b></label> {{good.amount}}
+  </div>  
+  <div>
+    <label><b>Price: </b></label> {{good.price}}
+  </div>  
+ <div>
+    <label><b>Category Name: </b></label> {{good.categoryName}}
+  </div>  
+  <div>
+    <label><b>Size: </b></label> {{good.size}}
+  </div>  
+</div>
+-->
+
+
+<div class="panel panel-primary" >
+  <div class="panel-heading">
+    <h2 align="center">Отзывы</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Название</th>
+          <th>Пользователь</th>
+          <th>Дата</th>
+          <th>Отзыв</th>      
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let feedback of feedbacksForGood">
+          <td>{{feedback.good.name}}</td>
+          <td>{{feedback.user.username}}</td>
+          <td>{{feedback.date}}</td>  
+          <td>{{feedback.text}}</td>     
+          <td>
+                   
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+<br>
+<button (click)="goodList()" class="btn btn-primary">Назад</button><br>
